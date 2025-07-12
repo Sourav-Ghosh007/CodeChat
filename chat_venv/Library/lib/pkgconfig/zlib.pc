@@ -1,0 +1,13 @@
+prefix=E:/DataScience/DataScience/GenAI/Real_Time_Projects/CodeChat/chat_venv/Library
+exec_prefix=E:/DataScience/DataScience/GenAI/Real_Time_Projects/CodeChat/chat_venv/Library
+libdir=E:/DataScience/DataScience/GenAI/Real_Time_Projects/CodeChat/chat_venv/Library/lib
+sharedlibdir=E:/DataScience/DataScience/GenAI/Real_Time_Projects/CodeChat/chat_venv/Library/lib
+includedir=E:/DataScience/DataScience/GenAI/Real_Time_Projects/CodeChat/chat_venv/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

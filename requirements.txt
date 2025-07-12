@@ -1,0 +1,14 @@
+ipykernel
+pandas
+numpy   
+scikit-learn
+matplotlib
+seaborn
+scipy
+langchain-openai
+langchain
+langchain-community
+langchain_core  
+streamlit
+langchain-core
+openai
