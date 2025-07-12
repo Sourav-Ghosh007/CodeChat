@@ -27,15 +27,27 @@ prompt=ChatPromptTemplate.from_messages(
 )
 
 # Give Parameters during the runtime
-def generate_response(question,api_key,engine,temperature,max_tokens):
+def generate_response(question, api_key, engine, temperature, max_tokens):
     try:
-        openai.api_key=api_key
-        llm=ChatOpenAI(model=engine)
-        output_parser=StrOutputParser()
-        chain=prompt|llm|output_parser
-        answer=chain.invoke({'question':question})
+        # 1) Set the OpenAI key for both SDK and env‐var
+        openai.api_key = api_key
+        os.environ["OPENAI_API_KEY"] = api_key
+
+        # 2) Instantiate the LLM with all parameters
+        llm = ChatOpenAI(
+            model=engine,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            openai_api_key=api_key
+        )
+
+        # 3) Build and run the chain
+        output_parser = StrOutputParser()
+        chain = prompt | llm | output_parser
+        answer = chain.invoke({"question": question})
         return answer
-    except Exception as e: 
+
+    except Exception as e:
         return f"An error occurred: {str(e)}"
 
 
